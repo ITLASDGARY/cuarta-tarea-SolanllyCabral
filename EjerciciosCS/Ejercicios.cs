@@ -24,8 +24,16 @@ namespace EjerciciosCS
         {
             // TODO: Implementar el cálculo del promedio de temperaturas
             double promedio = 0.0; 
-            
-            
+            double[] temperaturas = {30.5, 20, 19.3, 40.2, -1};
+            double sumaTemperaturas = 0;
+
+            for(int i = 0; i < temperaturas.Length; i++)
+            {
+                sumaTemperaturas += temperaturas[i];
+            }
+
+            promedio = sumaTemperaturas / temperaturas.Length;
+
             return promedio;
         }
 
@@ -46,7 +54,28 @@ namespace EjerciciosCS
             // TODO: Implementar la lista de compras interactiva
             List<string> listaCompras = new List<string>();
             
+            Console.WriteLine("Ingrese los productos que desea comprar.");
+            Console.WriteLine("Escriba 'salir' para terminar.");
 
+            while (true)
+            {
+                string producto = Console.ReadLine();
+                if(producto != "salir")
+                {
+                    listaCompras.Add(producto);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine("Lista de compras:");
+            foreach (var producto in listaCompras)
+            {
+                Console.WriteLine(producto);
+            }
+            
             return listaCompras;
         }
 
@@ -72,6 +101,21 @@ namespace EjerciciosCS
             bool encontrado = false;
             Random random = new Random();
             
+            int[] numeros = new int[10];
+
+            for(int i = 0; i < numeros.Length; i++)
+            {
+                numeros[i] = random.Next(0, 101); 
+            }
+            
+            for(int j = 0; j < numeros.Length; j++)
+            {
+                if (numeros[j] == numeroBuscado)
+                {
+                    encontrado = true;
+                    break;
+                }
+            }
 
             return encontrado;
         }
